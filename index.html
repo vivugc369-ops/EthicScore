@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EthicScore — Scan. Score. Share.</title>
+  <meta name="description" content="Point your camera at any skincare product and get its cruelty-free status, ingredient risk, and sustainability score instantly." />
+  <meta property="og:title" content="EthicScore — Scan. Score. Share." />
+  <meta property="og:description" content="Search, score, and discover ethical skincare products." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vivugc369-ops.github.io/EthicScore/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="legal">⚖️ <strong>Editorial Note:</strong> EthicScore independently reviews skincare. <strong>As an Amazon Associate I earn from qualifying purchases.</strong> © 2026 EthicScore</div>
+
+  <div id="site-nav"></div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="heroSection">
+    <div class="brand-name">🌿 EthicScore</div>
+    <div class="tagline">Scan. Score. Share.</div>
+    <p>Point your camera at any skincare product — get ethics score, ingredients, and Amazon link instantly.</p>
+
+    <div class="btn-group">
+      <a href="#scannerSection" class="cta-btn">📷 Scan Now</a>
+      <a href="#app" class="cta-btn cta-btn-secondary">✨ Browse 50+ Products</a>
+    </div>
+
+    <div class="trust-badges">
+      <span class="trust-badge verified">✅ Verified by EthicScore</span>
+      <span class="trust-badge ethics">🌱 Ethics Checked</span>
+      <span class="trust-badge products">📊 50+ Products Scored</span>
+    </div>
+
+    <button class="scroll-indicator" onclick="document.getElementById('scannerSection').scrollIntoView({behavior:'smooth'})" aria-label="Scroll to scanner">⌄</button>
+  </section>
+
+  <!-- ===== SCANNER SECTION ===== -->
+  <section id="scannerSection">
+    <h2>📷 Scan Any Product</h2>
+    <p>Point your camera at the barcode. We'll show you the ethics score instantly.</p>
+    <div class="scanner-box">
+      <video id="video" autoplay playsinline muted></video>
+      <div class="scan-frame" id="scanFrame"></div>
+      <p id="status" class="scanner-status">Press "Start Scan" to begin</p>
+      <div class="spinner" id="spinner"></div>
+      <div id="scannerResult">
+        <div class="brand" id="scanBrand">Brand</div>
+        <div class="name" id="scanName">Product Name</div>
+        <span class="score" id="scanScore">0</span>
+        <div class="ingredients" id="scanIngredients">Ingredients: ...</div>
+        <a id="scanAmazonLink" href="#" target="_blank" rel="noopener" class="buy-btn"><i class="fas fa-shopping-cart"></i> View on Amazon</a>
+        <div class="result-actions">
+          <button class="share-btn share-btn-wa" onclick="shareResult('whatsapp')"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+          <button class="share-btn share-btn-ig" onclick="shareResult('instagram')"><i class="fab fa-instagram"></i> Instagram</button>
+          <button class="share-btn share-btn-rd" onclick="shareResult('reddit')"><i class="fab fa-reddit-alien"></i> Reddit</button>
+          <button class="share-btn share-btn-cp" onclick="copyShareLink()"><i class="fas fa-copy"></i> Copy</button>
+        </div>
+      </div>
+      <button id="scanBtn" class="btn-scan">📷 Start Scan</button>
+      <button id="stopBtn" class="btn-stop">⛔ Stop</button>
+      <br>
+      <button id="manualEntryBtn" class="btn-manual">Enter barcode manually instead</button>
+    </div>
+    <p style="font-size:0.65rem; color:var(--text-faintest); margin-top:12px;">📱 Works on any phone with a camera. Data from Open Food Facts.</p>
+  </section>
+
+  <!-- ===== BLOG SECTION ===== -->
+  <section id="blogSection">
+    <div class="section-title">📖 Latest from EthicScore</div>
+    <div class="section-sub">Insights, guides, and transparency reports</div>
+
+    <div class="blog-card">
+      <span class="tag">📊 Guide</span>
+      <h3>Top 10 Most Ethical Skincare Brands in 2026</h3>
+      <p>We analyzed 50+ brands to find the most ethical skincare companies based on cruelty-free status, ingredients, and parent company transparency.</p>
+      <a href="blog1.html" class="read-more">Read Full Article →</a>
+    </div>
+
+    <div class="blog-card">
+      <span class="tag">🧪 Research</span>
+      <h3>How to Read a Skincare Ingredient Label Like a Pro</h3>
+      <p>Decode confusing ingredient lists and identify harmful chemicals with our simple guide.</p>
+      <a href="blog2.html" class="read-more">Read Full Article →</a>
+    </div>
+
+    <div class="blog-card">
+      <span class="tag">🔍 Transparency</span>
+      <h3>The Big Truth: Who Really Owns Your Skincare Brand?</h3>
+      <p>We reveal the parent companies behind popular "indie" skincare brands.</p>
+      <a href="blog3.html" class="read-more">Read Full Article →</a>
+    </div>
+
+    <div class="blog-teaser-foot"><a href="blog.html">View all articles →</a></div>
+  </section>
+
+  <!-- ===== PRO SUBSCRIPTION ===== -->
+  <section id="proSection">
+    <h2>👑 Unlock Pro Transparency</h2>
+    <div class="pro-price">₹299 <span>/ month</span></div>
+    <ul class="pro-features">
+      <li><i class="fas fa-check-circle"></i> Full ingredient lists for all products</li>
+      <li><i class="fas fa-check-circle"></i> Parent company ownership details</li>
+      <li><i class="fas fa-check-circle"></i> PDF routine reports</li>
+      <li><i class="fas fa-check-circle"></i> Exclusive early access to new products</li>
+      <li><i class="fas fa-check-circle"></i> No ads, ever</li>
+    </ul>
+    <button class="cta-btn" style="background:linear-gradient(135deg,var(--gold),var(--sage)); border:none;" onclick="showUpgrade()">🔓 Subscribe Now</button>
+    <p style="font-size:0.7rem; color:var(--text-faint); margin-top:12px;">Cancel anytime. 7-day free trial.</p>
+  </section>
+
+  <!-- ===== EMAIL SIGNUP ===== -->
+  <section id="emailSection">
+    <h2>📩 Join the Waitlist</h2>
+    <p>Get notified when we add new products and features.</p>
+    <a href="https://forms.gle/sAenmZmCwqrNrxJy6" target="_blank" rel="noopener" class="cta-btn">📩 Join Waitlist</a>
+  </section>
+
+  <!-- ===== APP ===== -->
+  <div id="app">
+    <div id="appHeader">
+      <div class="topbar"><h1>EthicScore</h1><button id="upgradeBtn" onclick="showUpgrade()">👑 Upgrade</button></div>
+      <div class="search-row">
+        <input type="text" id="searchInput" placeholder="Search by brand or product..." aria-label="Search products" />
+        <select id="regionFilter" aria-label="Filter by region"><option value="all">🌍 All Regions</option><option value="us">🇺🇸 USA</option><option value="eu">🇪🇺 Europe</option><option value="in">🇮🇳 India</option><option value="jp">🇯🇵 Japan</option></select>
+      </div>
+    </div>
+    <main>
+      <div id="discoverView">
+        <div class="section-title">🌿 Trending Now</div>
+        <div class="filter-row">
+          <button class="filter-chip active" onclick="setCategory('all', this)">All</button>
+          <button class="filter-chip" onclick="setCategory('cleanser', this)">Cleansers</button>
+          <button class="filter-chip" onclick="setCategory('serum', this)">Serums</button>
+          <button class="filter-chip" onclick="setCategory('moisturizer', this)">Moisturizers</button>
+          <button class="filter-chip" onclick="setCategory('toner', this)">Toners</button>
+          <button class="filter-chip" onclick="setCategory('sunscreen', this)">Sunscreens</button>
+          <button class="filter-chip" onclick="setCategory('mask', this)">Masks</button>
+          <button class="filter-chip" onclick="setCategory('eye-cream', this)">Eye Cream</button>
+        </div>
+        <div id="productList"></div>
+      </div>
+      <div id="routineView" style="display:none;"><div class="section-title">🧴 My Routine</div><div id="avgContainer"></div><div id="routineAnalyzer"></div><div id="routineList"></div></div>
+    </main>
+    <div class="detail-overlay" id="detailOverlay"><div class="detail-sheet" id="detailSheet"></div></div>
+    <nav class="bottom-nav"><button id="navDiscover" class="active" onclick="switchTab('discover')">🔍<br>Discover</button><button id="navRoutine" onclick="switchTab('routine')">🧴<br>Routine</button></nav>
+    <div class="disclaimer">⚖️ Independent &amp; Educational. <strong>As an Amazon Associate I earn from qualifying purchases.</strong></div>
+  </div>
+
+  <!-- ===== PRO MODAL (honest — no fake free unlock) ===== -->
+  <div class="pro-modal-overlay" id="proModalOverlay">
+    <div class="pro-modal">
+      <div class="close-btn" onclick="closeProModal()">✕</div>
+      <h3>👑 EthicScore Pro</h3>
+      <p>Full ingredient lists, parent-company transparency, and PDF routine reports for ₹299/month. Checkout isn't live yet — join the waitlist and we'll email you the moment it opens, no charge until then.</p>
+      <button class="cta-btn" onclick="goToCheckout()" style="width:100%;">Notify me</button>
+    </div>
+  </div>
+
+  <div class="image-lightbox" id="imageLightbox" onclick="closeLightbox()"><div class="close-lb" onclick="event.stopPropagation(); closeLightbox();">✕</div><img id="lightboxImage" src="" alt="Product zoom" onclick="event.stopPropagation();" /></div>
+
+  <div id="site-footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@zxing/browser@0.1.5/umd/index.min.js"></script>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/include.js"></script>
+</body>
+</html>
